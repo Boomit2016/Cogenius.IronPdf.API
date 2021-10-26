@@ -2,6 +2,7 @@ using Cogenius.IronPdf.API.Options;
 using Cogenius.IronPdf.API.Pdf;
 using Cogenius.IronPdf.API.PdfHelpers;
 using IronPdf;
+using IronPdf.Logging;
 using IronPdf.Rendering;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -23,6 +24,8 @@ namespace Cogenius.IronPdf.API
 
             License.LicenseKey = appSettings.IronPdfLicenseKey;
             Installation.DefaultRenderingEngine = PdfRenderingEngine.Chrome;
+            Logger.LoggingMode = Logger.LoggingModes.All;
+            Logger.EnableDebugging = true;
         }
 
         public IConfiguration Configuration { get; }
